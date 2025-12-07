@@ -293,7 +293,7 @@ export default function Home() {
       institution: "Seth Vishambhar Nath Institute of Engineering & Technology, Barabanki",
       location: "Lucknow , Utter Pradesh, India",
       period: "2022 - 2026",
-      grade: "CGPA: 7.8",
+      grade: "CGPA: 7.9",
       icon: IconSchool,
       achievements: [
         "Coursework: Data Structures and Algorithms, Object-Oriented Programming, Operating Systems, DBMS.",
@@ -304,7 +304,7 @@ export default function Home() {
       institution: "Lt. Dwarika Chaudhary Inter College.",
       location: "Chaubah, Lalganj, Basti Utter Pradesh",
       
-      grade: "Percentage : 60.4%",
+      grade: "Percentage : 80.4%",
       icon: IconCertificate,
       achievements: [
         "Physics , Chemistry and Mathematics",
