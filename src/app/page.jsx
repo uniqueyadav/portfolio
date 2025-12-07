@@ -304,7 +304,7 @@ export default function Home() {
       institution: "Lt. Dwarika Chaudhary Inter College.",
       location: "Chaubah, Lalganj, Basti Utter Pradesh",
       
-      grade: "Percentage : 80.4%",
+      grade: "Grade : A",
       icon: IconCertificate,
       achievements: [
         "Physics , Chemistry and Mathematics",
