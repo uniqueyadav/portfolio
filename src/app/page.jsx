@@ -535,6 +535,24 @@ export default function Home() {
                               </h4>
                               <span className="text-sm sm:text-base text-gray-400">
                                 • {exp.location}
+                                <motion.a
+                                                href="https://drive.google.com/file/d/18ujvd2KCBLtOC_rgQSo_8rF65w4QP4Kc/view?usp=drivesdk"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-white bg-gray-800 hover:bg-gray-700 px-8 py-3 rounded-full font-semibold transition-colors flex items-center space-x-2"
+                                                initial={{ scale: 0, opacity: 0 }}
+                                                animate={{ scale: 1, opacity: 1 }}
+                                                transition={{ delay: 1.3, duration: 0.6, ease: "backOut" }}
+                                                whileHover={{ scale: 1.05, y: -2 }}
+                                                whileTap={{ scale: 0.98 }}
+                                              >
+                                                <motion.span
+                                                  className="w-2 h-2 bg-green-500 rounded-full"
+                                                  animate={{ scale: [1, 1.2, 1] }}
+                                                  transition={{ repeat: Infinity, duration: 2, delay: 2.0 }}
+                                                />
+                                                <span>Resume</span>
+                                              </motion.a>
                               </span>
                             </div>
                           </div>
