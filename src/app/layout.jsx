@@ -23,7 +23,7 @@ export const metadata = {
     title: "Amit Yadav - Full-Stack Developer",
     description:
       "Full-Stack Developer - Creating innovative digital solutions with modern web technologies",
-    url: "https://surajpandit.vercel.app/", 
+    url: "https://yadav-amit-portfolio.vercel.app/", 
     siteName: "Amit Yadav Portfolio",
     images: [
       {

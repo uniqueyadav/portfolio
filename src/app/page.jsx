@@ -265,8 +265,7 @@ export default function Home() {
         "Tailwind CSS",
         "JWT",
       ],
-      // github: "https://github.com/suraj-78/shortly", 
-      // live: "https://shortly-tan-six.vercel.app/", 
+     
     },
     {
       title: "Resume Builder",
@@ -303,7 +302,7 @@ export default function Home() {
       degree: "Higher Secondary",
       institution: "Lt. Dwarika Chaudhary Inter College.",
       location: "Chaubah, Lalganj, Basti Utter Pradesh",
-      
+      period: "2022",
       grade: "Grade : A",
       icon: IconCertificate,
       achievements: [
@@ -314,7 +313,7 @@ export default function Home() {
       degree: "Secondary",
       institution: "Lt. Dwarika Chaudhary Inter College.",
       location: "Chaubah, Lalganj, Basti Utter Pradesh",
-      
+      period: "2020",
       grade: "Percentage 83.5",
       icon: IconCertificate,
       achievements: [
@@ -326,6 +325,7 @@ export default function Home() {
   const experience = [
     {
       role: "MERN Stack Intern",
+      certificate: "https://drive.google.com/file/d/19H27nAanNZJyVADxpsZRzERkcu_RfLWm/view?usp=drivesdk",
       company: "SoftPro India Pvt Ltd, Lucknow",
       location: "Onsite",
       period: "July 2025 - September 2025",
@@ -338,7 +338,8 @@ export default function Home() {
       ],
     },
     {
-      role: "Full Stack Web Development",
+      role: "Full Stack Web Developer Intern",
+      certificate: "https://drive.google.com/file/d/1xAkbpdbC6PBlQ5yAu6MhHuOpiquykKaa/view?usp=drivesdk",
       company: "Zidio Development",
       location: "Remote",
       period: "June 2025 - September 2025",
@@ -528,31 +529,14 @@ export default function Home() {
                               <span className="font-medium">{exp.period}</span>
                             </div>
                           </div>
+                          <a href = {exp.certificate} className="w-50 text-white bg-gray-800 hover:bg-gray-700 px-8 py-2 rounded-full font-semibold transition-colors flex items-center space-x-5" >View Certificate</a>
                           <div className="space-y-3 mb-6">
                             <div className="flex flex-col lg:flex-row lg:items-center gap-2">
-                              <h4 className="text-base sm:text-lg font-semibold text-gray-200">
+                              <h4 className="text-base sm:text-lg pt-2 font-semibold text-gray-200">
                                 {exp.company}
                               </h4>
-                              <span className="text-sm sm:text-base text-gray-400">
+                              <span className="text-sm sm:text-base pt-2 text-gray-400">
                                 • {exp.location}
-                                <motion.a
-                                                href="https://drive.google.com/file/d/18ujvd2KCBLtOC_rgQSo_8rF65w4QP4Kc/view?usp=drivesdk"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="text-white bg-gray-800 hover:bg-gray-700 px-8 py-3 rounded-full font-semibold transition-colors flex items-center space-x-2"
-                                                initial={{ scale: 0, opacity: 0 }}
-                                                animate={{ scale: 1, opacity: 1 }}
-                                                transition={{ delay: 1.3, duration: 0.6, ease: "backOut" }}
-                                                whileHover={{ scale: 1.05, y: -2 }}
-                                                whileTap={{ scale: 0.98 }}
-                                              >
-                                                <motion.span
-                                                  className="w-2 h-2 bg-green-500 rounded-full"
-                                                  animate={{ scale: [1, 1.2, 1] }}
-                                                  transition={{ repeat: Infinity, duration: 2, delay: 2.0 }}
-                                                />
-                                                <span>Resume</span>
-                                              </motion.a>
                               </span>
                             </div>
                           </div>
@@ -1060,7 +1044,7 @@ export default function Home() {
         <footer className="py-8 px-4 border-t border-gray-800">
           <div className="container mx-auto max-w-6xl text-center">
             <p className="text-gray-400">
-              © 2025 Amit Yadav. All rights reserved. Built with ❤️
+              © 2026 Amit Yadav. All rights reserved. Built with ❤️
             </p>
           </div>
         </footer>
