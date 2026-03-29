@@ -259,7 +259,7 @@ export function HeroSection() {
 
               {/* Resume Button */}
               <motion.a
-                href="https://drive.google.com/file/d/182YTIMq6hFJ5T3A2cgrxvIMaQEYdMDGT/view?usp=drivesdk"
+                href="https://drive.google.com/file/d/1ENODy5gUsl2SzWVaz7ypo3AfhMeiLO8V/view?usp=drivesdk"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white bg-gray-800 hover:bg-gray-700 px-8 py-3 rounded-full font-semibold transition-colors flex items-center space-x-2"

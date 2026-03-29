@@ -265,7 +265,8 @@ export default function Home() {
         "Tailwind CSS",
         "JWT",
       ],
-     
+      github: "https://github.com/uniqueyadav/HealthNexus-frontend",
+      live: "https://healthnexusomega.vercel.app/",
     },
     {
       title: "Resume Builder",
@@ -283,6 +284,40 @@ export default function Home() {
       ],
       github: "https://github.com/uniqueyadav/resume-builder", 
       live: "https://resume-frontend-ruddy.vercel.app/", 
+    },
+    {
+      title: "Golf Charity Subscription Platform",
+      description:
+        "• Support meaningful causes by subscribing to fund golf charities and youth development programs. • Enjoy exclusive automatic entry into recurring lucky draws for premium gear and experiences.• Join our community today to make a difference while playing to win! • Built using the MERN stack (MongoDB, Express.js, React, Node.js) ",
+      image: "/golf.png", 
+      tech: [
+        "javaScript",
+        "React.js",
+        "Bootstrap",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JWT",
+      ],
+      github: "https://github.com/uniqueyadav/gaming-platform-frontend", 
+      live: "https://goltcharityplatform.vercel.app/", 
+    },
+    {
+      title: "Task Manager",
+      description:
+        "• Streamline Your Workflow: Easily organize, prioritize, and track your daily tasks in one intuitive dashboard to stay focused and hit your deadlines. • Boost Personal Productivity: Get meaningful insights into your progress with automated reminders, ensuring you accomplish more with less stress. • Built using the MERN stack (MongoDB, Express.js, React, Node.js) ",
+      image: "/task.png", 
+      tech: [
+        "javaScript",
+        "React.js",
+        "Bootstrap",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JWT",
+      ],
+      github: "https://github.com/uniqueyadav/taskmanager-front", 
+      live: "https://taskmanageromega.vercel.app/", 
     },
   ];
 
