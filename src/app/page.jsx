@@ -75,7 +75,7 @@ export default function Home() {
       "Express.js": { icon: IconServer, color: "text-gray-300" },
       JWT: { icon: IconWorldWww, color: "text-gray-400" },
       "RESTful API Development": { icon: IconApi, color: "text-orange-400" },
-      Git: { icon: IconBrandGit, color: "text-red-500" },
+      Git: { icon: IconBrandGit, color: "text-red-500" }
     };
 
     return techMap[tech] || { icon: IconCode, color: "text-gray-400" };
@@ -246,6 +246,50 @@ export default function Home() {
       ),
       alt: "Git",
     },
+    {
+      node: (
+        <div className="flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-gray-800/50 to-gray-900/50 backdrop-blur-sm px-3 sm:px-6 py-2 sm:py-3 rounded-full border border-gray-700/30">
+          {/* <IconBrandSpringboot className="text-green-500" size={24} /> */}
+          <span className="text-white font-medium sm:font-semibold text-sm sm:text-base">
+            Spring
+          </span>
+        </div>
+      ),
+      alt: "Spring",
+    },
+    {
+      node: (
+        <div className="flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-gray-800/50 to-gray-900/50 backdrop-blur-sm px-3 sm:px-6 py-2 sm:py-3 rounded-full border border-gray-700/30">
+          {/* <IconBrandSpringboot className="text-green-500" size={24} /> */}
+          <span className="text-white font-medium sm:font-semibold text-sm sm:text-base">
+            Spring Boot
+          </span>
+        </div>
+      ),
+      alt: "Spring Boot",
+    },
+    {
+      node: (
+        <div className="flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-gray-800/50 to-gray-900/50 backdrop-blur-sm px-3 sm:px-6 py-2 sm:py-3 rounded-full border border-gray-700/30">
+          {/* <IconBrandJava className="text-red-500" size={24} /> */}
+          <span className="text-white font-medium sm:font-semibold text-sm sm:text-base">
+            Java
+          </span>
+        </div>
+      ),
+      alt: "Java",
+    },
+    {
+      node: (
+        <div className="flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-gray-800/50 to-gray-900/50 backdrop-blur-sm px-3 sm:px-6 py-2 sm:py-3 rounded-full border border-gray-700/30">
+          {/* <IconBrandhibernate className="text-red-500" size={24} /> */}
+          <span className="text-white font-medium sm:font-semibold text-sm sm:text-base">
+            Hibernate
+          </span>
+        </div>
+      ),
+      alt: "Hibernate",
+    },
   ];
 
   const projects = [
@@ -358,6 +402,20 @@ export default function Home() {
   ];
 
   const experience = [
+    {
+      role: "Java Full Stack Development Intern",
+      certificate: "https://drive.google.com/file/d/1PJi0CE8geH2cAI3HfE-L4MHql8FWytJh/view?usp=sharing",
+      company: "ExcelR EdTech Pvt Ltd, Bangalore",
+      location: "Online",
+      period: "June 2026 - Present",
+      icon: IconBuilding,
+      achievements: [
+        "During my internship at ExcelR EdTech, I worked as a Java Full Stack Development Intern, where I gained hands-on experience.",
+        "in developing dynamic and responsive web applications using Java, Spring Boot, React.js, and Node.js.",
+        "I was involved in both frontend and backend development. API integration, and database management.", 
+        "The internship helped me enhance my problem-solving abilities, improve my understanding of full-stack workflows, and apply industry best practices in real-world projects under professional guidance."
+      ],
+    },
     {
       role: "MERN Stack Intern",
       certificate: "https://drive.google.com/file/d/19H27nAanNZJyVADxpsZRzERkcu_RfLWm/view?usp=drivesdk",

@@ -259,7 +259,7 @@ export function HeroSection() {
 
               {/* Resume Button */}
               <motion.a
-                href="https://drive.google.com/file/d/1ENODy5gUsl2SzWVaz7ypo3AfhMeiLO8V/view?usp=drivesdk"
+                href="https://drive.google.com/file/d/1MXy-3FnrIdzWHgP8vO2R0-4FjeBsxh4p/view?usp=drivesdk"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white bg-gray-800 hover:bg-gray-700 px-8 py-3 rounded-full font-semibold transition-colors flex items-center space-x-2"
@@ -363,7 +363,7 @@ export function HeroSection() {
                     transition={{ delay: 0.7, duration: 0.6, ease: "backOut" }}
                   >
                     <Image
-                      src="/profile-photo.jpg"
+                      src="/profile_photo.png"
                       alt="Amit Yadav Profile Picture"
                       width={400}
                       height={400}
