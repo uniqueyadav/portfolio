@@ -22,34 +22,34 @@ export default function ContactForm() {
     e.preventDefault();
     setLoading(true);
     setResult(null);
-    const now = new Date();
-    const time = now.toLocaleString();
+    form.current.elements.namedItem("time").value = new Date().toLocaleString();
 
     emailjs
       .sendForm(
-        "service_76srbng",
-        "template_zce5ju8",
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
         form.current,
-        "zrIfLSyo7Vo5DmBJ6",
-        { time }
+        { publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY }
       )
       .then(
         () => {
           setResult({ success: true, message: "Message sent successfully!" });
           form.current.reset();
         },
-        () => {
+        (error) => {
+          console.error("EmailJS contact form error:", error);
           setResult({
             success: false,
-            message: "Failed to send message. Please try again.",
+            message: error?.text || "Failed to send message. Please try again.",
           });
-        }
+        },
       )
       .finally(() => setLoading(false));
   };
 
-   return (
+  return (
     <form ref={form} onSubmit={sendEmail} className="space-y-6">
+      <input type="hidden" name="time" />
       <div>
         <label className="block text-white font-medium mb-2">Name</label>
         <input
