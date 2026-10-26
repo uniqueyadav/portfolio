@@ -58,20 +58,36 @@ import { Highlighter } from "@/components/ui/highlighter";
 
 export default function Home() {
   const [visitCount, setVisitCount] = useState(null);
+  const [visitorCountUnavailable, setVisitorCountUnavailable] = useState(false);
+  const [visitorTime, setVisitorTime] = useState("");
 
   useEffect(() => {
-    const countKey = "amit-portfolio-visit-count";
     const sessionKey = "amit-portfolio-visit-counted";
-    let count = Number(window.localStorage.getItem(countKey));
+    const isNewSession = !window.sessionStorage.getItem(sessionKey);
+    if (isNewSession) window.sessionStorage.setItem(sessionKey, "true");
 
-    // Count one visit per browser tab session; this is a device-local estimate.
-    if (!window.sessionStorage.getItem(sessionKey)) {
-      count += 1;
-      window.localStorage.setItem(countKey, String(count));
-      window.sessionStorage.setItem(sessionKey, "true");
-    }
+    fetch("/api/visitors", { method: isNewSession ? "POST" : "GET" })
+      .then((response) => {
+        if (!response.ok) throw new Error("Visitor count unavailable");
+        return response.json();
+      })
+      .then(({ count }) => setVisitCount(count))
+      .catch(() => {
+        if (isNewSession) window.sessionStorage.removeItem(sessionKey);
+        setVisitorCountUnavailable(true);
+      });
 
-    setVisitCount(count);
+    const updateVisitorTime = () => {
+      setVisitorTime(
+        new Intl.DateTimeFormat(undefined, {
+          dateStyle: "medium",
+          timeStyle: "medium",
+        }).format(new Date()),
+      );
+    };
+    updateVisitorTime();
+    const timer = window.setInterval(updateVisitorTime, 1000);
+    return () => window.clearInterval(timer);
   }, []);
 
   // Function to get tech icon and color
@@ -383,6 +399,108 @@ export default function Home() {
       github: "https://github.com/uniqueyadav/taskmanager-front",
       live: "https://taskmanageromega.vercel.app/",
     },
+    {
+      title: "CRM System",
+      description:
+        "• Developed a CRM system to manage customer information, interactions, and business relationships efficiently. • Implemented customer record management, lead tracking, and follow-up activities. • Designed a centralized dashboard to monitor customer data, sales activities, and business performance.",
+      image: "/crm.png",
+      tech: [
+        "javaScript",
+        "React.js",
+        "Bootstrap",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JWT",
+      ],
+      github: "https://github.com/amityadavprism/pis-crm",
+      live: "https://pis-crm.vercel.app/",
+    },
+    {
+      title: "Restaurant Management System",
+      description:
+        "• Developed a comprehensive restaurant management system to streamline operations and enhance customer experience. • Implemented features for order management, inventory tracking, and staff scheduling. • Designed an intuitive interface for both managers and employees to improve efficiency.",
+      image: "/restaurant.png",
+      tech: [
+        "javaScript",
+        "React.js",
+        "Bootstrap",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JWT",
+      ],
+      github: "https://github.com/amityadavprism/restro-ms",
+      live: "https://restro-ms.vercel.app/",
+    },
+    {
+      title: "Hostel & PG Management System",
+      description:
+        "• Developed a comprehensive hostel and PG management system to streamline operations and enhance customer experience. • Implemented features for room management, tenant tracking, and maintenance scheduling. • Designed an intuitive interface for both managers and tenants to improve efficiency.",
+      image: "/hostel.png",
+      tech: [
+        "javaScript",
+        "React.js",
+        "Bootstrap",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JWT",
+      ],
+      github: "https://github.com/amityadavprism/staynest",
+      live: "https://staynest-pune.vercel.app/",
+    },
+    {
+      title: "Hospital Management System",
+      description:
+        "• Developed a comprehensive hospital management system to streamline operations and enhance patient care. • Implemented features for appointment scheduling, medical record management, and staff coordination. • Designed an intuitive interface for both healthcare providers and patients to improve efficiency.",
+      image: "/hospital.png",
+      tech: [
+        "javaScript",
+        "React.js",
+        "Bootstrap",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JWT",
+      ],
+      github: "https://github.com/amityadavprism/prism-hms",
+      live: "https://prism-hms.vercel.app/",
+    },
+    {
+      title: "Coaching Institute website",
+      description:
+        "• Developed a comprehensive coaching management system to streamline operations and enhance student experience. • Implemented features for course management, student tracking, and performance evaluation. • Designed an intuitive interface for both instructors and students to improve engagement.",
+      image: "/coaching.png",
+      tech: [
+        "javaScript",
+        "React.js",
+        "Bootstrap",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JWT",
+      ],
+      github: "https://github.com/amityadavprism/coaching_institute",
+      live: "https://prismbrightpath.vercel.app/",
+    },
+    {
+      title: "Hotel booking website",
+      description:
+        "• Developed a modern hotel booking website to showcase hotel rooms, amenities, and available accommodation. • Designed an intuitive interface for users to explore room details, pricing, and booking options. • Included essential pages for hotel information, room selection, reservations, and customer inquiries.",
+      image: "/hotel.png",
+      tech: [
+        "javaScript",
+        "React.js",
+        "Bootstrap",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JWT",
+      ],
+      github: "https://github.com/amityadavprism/hotel-booking",
+      live: "https://hotelbookingprism.vercel.app/",
+    },
   ];
 
   const education = [
@@ -392,7 +510,7 @@ export default function Home() {
         "Seth Vishambhar Nath Institute of Engineering & Technology, Barabanki",
       location: "Lucknow , Utter Pradesh, India",
       period: "2022 - 2026",
-      grade: "CGPA: 7.9",
+      grade: "CGPA: 7.8",
       icon: IconSchool,
       achievements: [
         "Coursework: Data Structures and Algorithms, Object-Oriented Programming, Operating Systems, DBMS.",
@@ -419,6 +537,19 @@ export default function Home() {
   ];
 
   const experience = [
+    {
+      role: "Full Stack Web Developer",
+      company: "Prism infotech solution Pvt Ltd, Kota Rajasthan",
+      location: "Remote",
+      period: "September 2026 - Present",
+      icon: IconBuilding,
+      achievements: [
+        "During my internship at Prism infotech solution, I worked as a Full Stack Web Developer, where I gained hands-on experience.",
+        "in developing dynamic and responsive web applications using javascript, Express.js, React.js, and Node.js., MongoDB.",
+        "I was involved in both frontend and backend development. API integration, and database management.",
+        "The internship helped me enhance my problem-solving abilities, improve my understanding of full-stack workflows, and apply industry best practices in real-world projects under professional guidance.",
+      ],
+    },
     {
       role: "Java Full Stack Development Intern",
       certificate:
@@ -1169,27 +1300,20 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="py-8 px-4 border-t border-gray-800">
-          <div className="container mx-auto max-w-6xl flex flex-col items-center gap-5 text-center sm:flex-row sm:justify-between">
+          <div className="container mx-auto max-w-6xl flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-between">
             <p className="text-gray-400">
               © 2026 Amit Yadav. All rights reserved. Built with ❤️
             </p>
-            <div className="flex flex-col items-center gap-3 text-sm text-gray-400 sm:flex-row sm:gap-6">
-              <p
-                className="flex items-center gap-2"
-                title="Stored only in this browser"
-              >
-                <IconEye
-                  size={17}
-                  className="text-orange-400"
-                  aria-hidden="true"
-                />
-                Visits on this device: {visitCount ?? "…"}
+            <div className="flex flex-col items-center gap-2 text-sm text-gray-400">
+              <p className="flex items-center gap-2" title="Shared site-wide visitor total">
+                <IconEye size={17} className="text-orange-400" aria-hidden="true" />
+                Total visitors: {visitCount ?? (visitorCountUnavailable ? "Unavailable" : "Loading…")}
               </p>
               <p>
-                Updated:{" "}
-                <time dateTime="2026-10-27T00:31:00+05:30">
-                  Oct 27, 2026 · 12:31 AM IST
-                </time>
+                Your time: <time>{visitorTime || "Loading…"}</time>
+              </p>
+              <p>
+                Last updated: <time dateTime="2026-10-27T00:56:00+05:30">Oct 27, 2026 · 12:56 AM IST</time>
               </p>
             </div>
             <button
