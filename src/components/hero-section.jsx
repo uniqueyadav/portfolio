@@ -259,7 +259,7 @@ export function HeroSection() {
 
               {/* Resume Button */}
               <motion.a
-                href="https://drive.google.com/file/d/1MXy-3FnrIdzWHgP8vO2R0-4FjeBsxh4p/view?usp=drivesdk"
+                href="https://drive.google.com/file/d/1W44henhIJ4a4kqa4jp8MQWZjVXSfUrxB/view"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white bg-gray-800 hover:bg-gray-700 px-8 py-3 rounded-full font-semibold transition-colors flex items-center space-x-2"
@@ -368,7 +368,7 @@ export function HeroSection() {
                       width={400}
                       height={400}
                       className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
-                      style={{ objectPosition: 'center 0%' }}
+                      style={{ objectPosition: "center 0%" }}
                       priority
                     />
                     {/* Overlay gradient for depth */}

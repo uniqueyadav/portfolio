@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
@@ -7,6 +7,7 @@ import { HeroSection } from "@/components/hero-section";
 import LogoLoop from "@/components/LogoLoop";
 import { ProjectFollowingPointer } from "@/components/ProjectFollowingPointer";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import {
   IconCode,
   IconDatabase,
@@ -49,11 +50,30 @@ import {
   IconBolt,
   IconBuilding,
   IconBrandBootstrap,
-  IconBrandDjango
+  IconBrandDjango,
+  IconArrowUp,
+  IconEye,
 } from "@tabler/icons-react";
 import { Highlighter } from "@/components/ui/highlighter";
 
 export default function Home() {
+  const [visitCount, setVisitCount] = useState(null);
+
+  useEffect(() => {
+    const countKey = "amit-portfolio-visit-count";
+    const sessionKey = "amit-portfolio-visit-counted";
+    let count = Number(window.localStorage.getItem(countKey));
+
+    // Count one visit per browser tab session; this is a device-local estimate.
+    if (!window.sessionStorage.getItem(sessionKey)) {
+      count += 1;
+      window.localStorage.setItem(countKey, String(count));
+      window.sessionStorage.setItem(sessionKey, "true");
+    }
+
+    setVisitCount(count);
+  }, []);
+
   // Function to get tech icon and color
   const getTechIconAndColor = (tech) => {
     const techMap = {
@@ -75,7 +95,7 @@ export default function Home() {
       "Express.js": { icon: IconServer, color: "text-gray-300" },
       JWT: { icon: IconWorldWww, color: "text-gray-400" },
       "RESTful API Development": { icon: IconApi, color: "text-orange-400" },
-      Git: { icon: IconBrandGit, color: "text-red-500" }
+      Git: { icon: IconBrandGit, color: "text-red-500" },
     };
 
     return techMap[tech] || { icon: IconCode, color: "text-gray-400" };
@@ -297,8 +317,8 @@ export default function Home() {
       title: "HealthNexus - A smart hospital Management system",
       description:
         "• HealthNexus is a web-based application designed to simplify healthcare management and enhance patient–doctor interaction.• The platformenables users to securely store and access medical records, book appointments, and manage health information conveniently.",
-        
-      image: "/project-1.png", 
+
+      image: "/project-1.png",
       tech: [
         "Node.js",
         "Express.js",
@@ -316,7 +336,7 @@ export default function Home() {
       title: "Resume Builder",
       description:
         "• The Resume Builder System is a web-based application designed to help users easily create professional resumes. •It allows users to input personal, educational, and professional details through an interactive interface and automatically generates a well-formatted resume. • Built using the MERN stack (MongoDB, Express.js, React, Node.js) ",
-      image: "/project-2.png", 
+      image: "/project-2.png",
       tech: [
         "javaScript",
         "React.js",
@@ -326,14 +346,14 @@ export default function Home() {
         "MongoDB",
         "JWT",
       ],
-      github: "https://github.com/uniqueyadav/resume-builder", 
-      live: "https://resume-frontend-ruddy.vercel.app/", 
+      github: "https://github.com/uniqueyadav/resume-builder",
+      live: "https://resume-frontend-ruddy.vercel.app/",
     },
     {
       title: "Golf Charity Subscription Platform",
       description:
         "• Support meaningful causes by subscribing to fund golf charities and youth development programs. • Enjoy exclusive automatic entry into recurring lucky draws for premium gear and experiences.• Join our community today to make a difference while playing to win! • Built using the MERN stack (MongoDB, Express.js, React, Node.js) ",
-      image: "/golf.png", 
+      image: "/golf.png",
       tech: [
         "javaScript",
         "React.js",
@@ -343,14 +363,14 @@ export default function Home() {
         "MongoDB",
         "JWT",
       ],
-      github: "https://github.com/uniqueyadav/gaming-platform-frontend", 
-      live: "https://goltcharityplatform.vercel.app/", 
+      github: "https://github.com/uniqueyadav/gaming-platform-frontend",
+      live: "https://goltcharityplatform.vercel.app/",
     },
     {
       title: "Task Manager",
       description:
         "• Streamline Your Workflow: Easily organize, prioritize, and track your daily tasks in one intuitive dashboard to stay focused and hit your deadlines. • Boost Personal Productivity: Get meaningful insights into your progress with automated reminders, ensuring you accomplish more with less stress. • Built using the MERN stack (MongoDB, Express.js, React, Node.js) ",
-      image: "/task.png", 
+      image: "/task.png",
       tech: [
         "javaScript",
         "React.js",
@@ -360,15 +380,16 @@ export default function Home() {
         "MongoDB",
         "JWT",
       ],
-      github: "https://github.com/uniqueyadav/taskmanager-front", 
-      live: "https://taskmanageromega.vercel.app/", 
+      github: "https://github.com/uniqueyadav/taskmanager-front",
+      live: "https://taskmanageromega.vercel.app/",
     },
   ];
 
   const education = [
     {
       degree: "B.Tech. in Computer Science & Design",
-      institution: "Seth Vishambhar Nath Institute of Engineering & Technology, Barabanki",
+      institution:
+        "Seth Vishambhar Nath Institute of Engineering & Technology, Barabanki",
       location: "Lucknow , Utter Pradesh, India",
       period: "2022 - 2026",
       grade: "CGPA: 7.9",
@@ -384,9 +405,7 @@ export default function Home() {
       period: "2022",
       grade: "Grade : A",
       icon: IconCertificate,
-      achievements: [
-        "Physics , Chemistry and Mathematics",
-      ],
+      achievements: ["Physics , Chemistry and Mathematics"],
     },
     {
       degree: "Secondary",
@@ -395,16 +414,15 @@ export default function Home() {
       period: "2020",
       grade: "Percentage 83.5",
       icon: IconCertificate,
-      achievements: [
-        "",
-      ],
+      achievements: [""],
     },
   ];
 
   const experience = [
     {
       role: "Java Full Stack Development Intern",
-      certificate: "https://drive.google.com/file/d/1PJi0CE8geH2cAI3HfE-L4MHql8FWytJh/view?usp=sharing",
+      certificate:
+        "https://drive.google.com/file/d/1PJi0CE8geH2cAI3HfE-L4MHql8FWytJh/view?usp=sharing",
       company: "ExcelR EdTech Pvt Ltd, Bangalore",
       location: "Online",
       period: "June 2026 - Present",
@@ -412,13 +430,14 @@ export default function Home() {
       achievements: [
         "During my internship at ExcelR EdTech, I worked as a Java Full Stack Development Intern, where I gained hands-on experience.",
         "in developing dynamic and responsive web applications using Java, Spring Boot, React.js, and Node.js.",
-        "I was involved in both frontend and backend development. API integration, and database management.", 
-        "The internship helped me enhance my problem-solving abilities, improve my understanding of full-stack workflows, and apply industry best practices in real-world projects under professional guidance."
+        "I was involved in both frontend and backend development. API integration, and database management.",
+        "The internship helped me enhance my problem-solving abilities, improve my understanding of full-stack workflows, and apply industry best practices in real-world projects under professional guidance.",
       ],
     },
     {
       role: "MERN Stack Intern",
-      certificate: "https://drive.google.com/file/d/19H27nAanNZJyVADxpsZRzERkcu_RfLWm/view?usp=drivesdk",
+      certificate:
+        "https://drive.google.com/file/d/19H27nAanNZJyVADxpsZRzERkcu_RfLWm/view?usp=drivesdk",
       company: "SoftPro India Pvt Ltd, Lucknow",
       location: "Onsite",
       period: "July 2025 - September 2025",
@@ -426,38 +445,42 @@ export default function Home() {
       achievements: [
         "During my internship at Softpro India, I worked as a MERN Stack Developer Intern, where I gained hands-on experience.",
         "in developing dynamic and responsive web applications using MongoDB, Express.js, React.js, and Node.js.",
-        "I was involved in both frontend and backend development. API integration, and database management.", 
-        "The internship helped me enhance my problem-solving abilities, improve my understanding of full-stack workflows, and apply industry best practices in real-world projects under professional guidance."
+        "I was involved in both frontend and backend development. API integration, and database management.",
+        "The internship helped me enhance my problem-solving abilities, improve my understanding of full-stack workflows, and apply industry best practices in real-world projects under professional guidance.",
       ],
     },
     {
       role: "Full Stack Web Developer Intern",
-      certificate: "https://drive.google.com/file/d/1xAkbpdbC6PBlQ5yAu6MhHuOpiquykKaa/view?usp=drivesdk",
+      certificate:
+        "https://drive.google.com/file/d/1xAkbpdbC6PBlQ5yAu6MhHuOpiquykKaa/view?usp=drivesdk",
       company: "Zidio Development",
       location: "Remote",
       period: "June 2025 - September 2025",
       icon: IconBuilding,
       achievements: [
-        "During my internship at Zidio Development, I worked as a Full Stack Web Development Intern, where I contributed to designing and developing interactive web applications using technologies like React.js, Node.js, Express.js, and MongoDB.","I was responsible for building user interfaces, integrating RESTful APIs, and optimizing performance for better user experience.","This internship provided me with valuable practical exposure to end-to-end development processes, teamwork, and modern software development practices.",
+        "During my internship at Zidio Development, I worked as a Full Stack Web Development Intern, where I contributed to designing and developing interactive web applications using technologies like React.js, Node.js, Express.js, and MongoDB.",
+        "I was responsible for building user interfaces, integrating RESTful APIs, and optimizing performance for better user experience.",
+        "This internship provided me with valuable practical exposure to end-to-end development processes, teamwork, and modern software development practices.",
       ],
     },
   ];
-  
-    const achievements = [
+
+  const achievements = [
     {
-      description: "Excelled on Hacker Rank, achieving a maximum rating of 1720+, ranked in the top  globally, with a highest global rank of 32900.",
-      icon: IconTrophy
+      description:
+        "Excelled on Hacker Rank, achieving a maximum rating of 1720+, ranked in the top  globally, with a highest global rank of 32900.",
+      icon: IconTrophy,
     },
     {
-      description: "Solved over 350+ problems across platforms including LeetCode, Codeforces, GeeksforGeeks, and Coding Ninjas.",
-      icon: IconCode
+      description:
+        "Solved over 350+ problems across platforms including LeetCode, Codeforces, GeeksforGeeks, and Coding Ninjas.",
+      icon: IconCode,
     },
     {
-      description: "Completed practical Robotics Automation training, gaining hands-on experience in sensors, controllers, and task automation techniques.",
-      icon: IconTrophy
+      description:
+        "Completed practical Robotics Automation training, gaining hands-on experience in sensors, controllers, and task automation techniques.",
+      icon: IconTrophy,
     },
-    
-   
   ];
 
   return (
@@ -518,10 +541,17 @@ export default function Home() {
                   Full-Stack Developer
                 </h3>
                 <p className="text-gray-300 text-lg leading-relaxed">
-                    I’m a passionate Computer Science student and full-stack developer who loves solving real-world problems through code. My core strength lies in quickly understanding challenges and building efficient, scalable solutions, whether it’s using the MERN stack or exploring new technologies beyond it.
+                  I’m a passionate Computer Science student and full-stack
+                  developer who loves solving real-world problems through code.
+                  My core strength lies in quickly understanding challenges and
+                  building efficient, scalable solutions, whether it’s using the
+                  MERN stack or exploring new technologies beyond it.
                 </p>
                 <p className="text-gray-300 text-lg leading-relaxed">
-                    I enjoy learning, experimenting with different stacks, and continuously improving my development approach. Always open to collaboration, new ideas, and opportunities. Feel free to reach out!!
+                  I enjoy learning, experimenting with different stacks, and
+                  continuously improving my development approach. Always open to
+                  collaboration, new ideas, and opportunities. Feel free to
+                  reach out!!
                 </p>
                 <div className="flex flex-wrap gap-4 pt-4">
                   <div className="flex items-center gap-2 text-orange-400">
@@ -566,8 +596,10 @@ export default function Home() {
         </section>
 
         {/* Experience Section */}
-        <section id="experience" className="py-20 px-4 relative overflow-hidden">
-
+        <section
+          id="experience"
+          className="py-20 px-4 relative overflow-hidden"
+        >
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(255,107,53,0.1),transparent_50%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(247,147,30,0.1),transparent_50%)]" />
@@ -622,7 +654,12 @@ export default function Home() {
                               <span className="font-medium">{exp.period}</span>
                             </div>
                           </div>
-                          <a href = {exp.certificate} className="w-50 text-white bg-gray-800 hover:bg-gray-700 px-8 py-2 rounded-full font-semibold transition-colors flex items-center space-x-5" >View Certificate</a>
+                          <a
+                            href={exp.certificate}
+                            className="w-50 text-white bg-gray-800 hover:bg-gray-700 px-8 py-2 rounded-full font-semibold transition-colors flex items-center space-x-5"
+                          >
+                            View Certificate
+                          </a>
                           <div className="space-y-3 mb-6">
                             <div className="flex flex-col lg:flex-row lg:items-center gap-2">
                               <h4 className="text-base sm:text-lg pt-2 font-semibold text-gray-200">
@@ -651,9 +688,7 @@ export default function Home() {
                     </motion.div>
                   </div>
                   <div className="hidden lg:flex flex-col items-center">
-                    <motion.div
-                      className="w-4 h-4 border-4 border-orange-500 bg-black rounded-full"
-                    />
+                    <motion.div className="w-4 h-4 border-4 border-orange-500 bg-black rounded-full" />
                   </div>
                   <div className="flex-1 hidden lg:block" />
                 </motion.div>
@@ -690,10 +725,8 @@ export default function Home() {
                 </Highlighter>{" "}
                 and continuous{" "}
                 <Highlighter action="underline" color="#FF9800">
-                  learning path
-                  in technology
+                  learning path in technology
                 </Highlighter>{" "}
-                
               </p>
               <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-red-600 mx-auto rounded-full mt-6" />
             </motion.div>
@@ -837,7 +870,6 @@ export default function Home() {
                 <Highlighter action="underline" color="#FF9800">
                   ideas to life
                 </Highlighter>{" "}
-                
               </p>
               <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-red-600 mx-auto rounded-full" />
             </motion.div>
@@ -976,7 +1008,10 @@ export default function Home() {
         </section>
 
         {/* Achievements Section */}
-        <section id="achievements" className="py-20 px-4 relative overflow-hidden">
+        <section
+          id="achievements"
+          className="py-20 px-4 relative overflow-hidden"
+        >
           <div className="container mx-auto max-w-6xl relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -1003,12 +1038,11 @@ export default function Home() {
                 >
                   <div className="flex items-start gap-4">
                     <div className="p-3 bg-gradient-to-br from-orange-500/20 to-red-600/20 rounded-xl">
-                      <achievement.icon
-                        size={28}
-                        className="text-orange-400"
-                      />
+                      <achievement.icon size={28} className="text-orange-400" />
                     </div>
-                    <p className="text-gray-300 text-lg leading-relaxed">{achievement.description}</p>
+                    <p className="text-gray-300 text-lg leading-relaxed">
+                      {achievement.description}
+                    </p>
                   </div>
                 </motion.div>
               ))}
@@ -1135,10 +1169,38 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="py-8 px-4 border-t border-gray-800">
-          <div className="container mx-auto max-w-6xl text-center">
+          <div className="container mx-auto max-w-6xl flex flex-col items-center gap-5 text-center sm:flex-row sm:justify-between">
             <p className="text-gray-400">
               © 2026 Amit Yadav. All rights reserved. Built with ❤️
             </p>
+            <div className="flex flex-col items-center gap-3 text-sm text-gray-400 sm:flex-row sm:gap-6">
+              <p
+                className="flex items-center gap-2"
+                title="Stored only in this browser"
+              >
+                <IconEye
+                  size={17}
+                  className="text-orange-400"
+                  aria-hidden="true"
+                />
+                Visits on this device: {visitCount ?? "…"}
+              </p>
+              <p>
+                Updated:{" "}
+                <time dateTime="2026-10-27T00:31:00+05:30">
+                  Oct 27, 2026 · 12:31 AM IST
+                </time>
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="inline-flex items-center gap-2 rounded-full border border-orange-400/40 px-4 py-2 text-sm text-orange-300 transition hover:border-orange-300 hover:bg-orange-400/10 hover:text-orange-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
+              aria-label="Back to top"
+            >
+              <IconArrowUp size={17} aria-hidden="true" />
+              Back to top
+            </button>
           </div>
         </footer>
       </main>
