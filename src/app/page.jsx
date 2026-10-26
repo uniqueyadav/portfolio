@@ -330,6 +330,27 @@ export default function Home() {
 
   const projects = [
     {
+      title: "IntellMeet AI-powered Interprise Meeting Assistant",
+      description:
+        "• IntellMeet is a web-based application designed to simplify enterprise meeting management and enhance collaboration.• The platformenables users to securely store and access meeting records, book appointments, and manage meeting information conveniently.",
+
+      image: "/intellmeet.png",
+      tech: [
+        "Node.js",
+        "Express.js",
+        "Mongodb",
+        "Bootstrap",
+        "HTML",
+        "React",
+        "Tailwind CSS",
+        "JWT",
+        "WebRTC",
+        "Socket.io",
+      ],
+      github: "https://github.com/uniqueyadav/intellmeet",
+      live: "https://intell-meet-gamma.vercel.app/",
+    },
+    {
       title: "HealthNexus - A smart hospital Management system",
       description:
         "• HealthNexus is a web-based application designed to simplify healthcare management and enhance patient–doctor interaction.• The platformenables users to securely store and access medical records, book appointments, and manage health information conveniently.",
@@ -437,7 +458,7 @@ export default function Home() {
       title: "Hostel & PG Management System",
       description:
         "• Developed a comprehensive hostel and PG management system to streamline operations and enhance customer experience. • Implemented features for room management, tenant tracking, and maintenance scheduling. • Designed an intuitive interface for both managers and tenants to improve efficiency.",
-      image: "/hostel.png",
+      image: "/staynest.png",
       tech: [
         "javaScript",
         "React.js",
@@ -1305,15 +1326,27 @@ export default function Home() {
               © 2026 Amit Yadav. All rights reserved. Built with ❤️
             </p>
             <div className="flex flex-col items-center gap-2 text-sm text-gray-400">
-              <p className="flex items-center gap-2" title="Shared site-wide visitor total">
-                <IconEye size={17} className="text-orange-400" aria-hidden="true" />
-                Total visitors: {visitCount ?? (visitorCountUnavailable ? "Unavailable" : "Loading…")}
+              <p
+                className="flex items-center gap-2"
+                title="Shared site-wide visitor total"
+              >
+                <IconEye
+                  size={17}
+                  className="text-orange-400"
+                  aria-hidden="true"
+                />
+                Total visitors:{" "}
+                {visitCount ??
+                  (visitorCountUnavailable ? "Unavailable" : "Loading…")}
               </p>
               <p>
                 Your time: <time>{visitorTime || "Loading…"}</time>
               </p>
               <p>
-                Last updated: <time dateTime="2026-10-27T00:56:00+05:30">Oct 27, 2026 · 12:56 AM IST</time>
+                Last updated:{" "}
+                <time dateTime="2026-10-27T00:56:00+05:30">
+                  Oct 27, 2026 · 12:56 AM IST
+                </time>
               </p>
             </div>
             <button
